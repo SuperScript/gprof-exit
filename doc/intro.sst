@@ -1,0 +1,25 @@
+\.html
+\.head
+\title{trigger}
+\/head
+\.body
+\crumbs
+\h1{Introduction}
+<p>\a{install.html}{How to install gprof-exit}
+<hr>
+
+\h2{What is gprof-exit?}
+The gprof-exit package supplies an object file that redefines \tt{_exit}
+to print profiling information for the
+\a{http://www.gnu.org/software/binutils/manual/gprof-2.9.1/html_mono/gprof.html}{gprof}
+program.  This allows use of gprof to profile programs that call
+\tt{_exit} directly rather than calling \tt{exit}.
+
+\h2{How to use gprof-exit}
+To use gprof-exit with a typical \tt{/package} project, alter the the
+conf-cc and conf-ld files in the package you wish to profile to include
+any desired gprof options.  In conf-ld also include
+\tt{/package/host/superscript.com/prog/gprof-exit/compile/gprof_exit.o}
+as an object-file argument.
+\/body
+\/html

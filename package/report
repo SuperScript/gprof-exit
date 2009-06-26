@@ -1,0 +1,10 @@
+#!/bin/sh -e
+[ -d compile ] || ( echo 'Wrong working directory.'; exit 1 )
+here=`env - PATH=$PATH pwd`
+( echo PACKAGE-VERSION
+  echo $here
+  if [ -r compile/sysdeps ]
+  then
+    cat compile/sysdeps
+  fi
+) | mail web-inst@superscript.com

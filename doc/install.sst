@@ -1,0 +1,60 @@
+<html>
+<head>\title{gprof-exit}</head>
+<body>
+\crumbs
+\h1{How to install gprof-exit}
+
+gprof-exit comes with NO WARRANTY.
+
+\h2{System requirements}
+gprof-exit works only under UNIX.
+
+This package implements an \tt{_exit} subroutine that writes profiling
+information for
+\a{http://www.gnu.org/software/binutils/manual/gprof-2.9.1/html_mono/gprof.html}{gprof}.
+
+\h2{Installation}
+If necessary, create a \tt{/package} directory:
+<pre>
+  mkdir /package
+  chmod 1755 /package
+  cd /package
+</pre>
+
+Download the gprof-exit package.  The most recent gprof-exit package is
+\a{gprof-exit-\version.tar.gz}{gprof-exit~\version}.  Unpack gprof-exit in
+\tt{/package}:
+<pre>
+  gunzip gprof-exit-\version.tar
+  tar -xpf gprof-exit-\version.tar
+  rm gprof-exit-\version.tar
+  cd host/superscript.com/prog/gprof-exit-\version
+</pre>
+
+Compile the package:
+<pre>
+  package/compile
+</pre>
+
+Run some tests:
+<pre>
+  package/rts
+</pre>
+The output should be empty.
+
+Install the package:
+<pre>
+  package/install
+</pre>
+
+Commands are installed in the
+\tt{/package/host/superscript.com/command} directory.
+For compatibility with prior versions, commands are also installed in
+the \tt{/usr/local/bin} directory.
+
+Report successful installation:
+<pre>
+  package/report
+</pre>
+</body></html>
+
