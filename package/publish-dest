@@ -1,2 +1,4 @@
 localhost:html localhost:/home/web/www/www.superscript.com/gprof-exit/
 localhost:dist localhost:/home/web/www/www.superscript.com/gprof-exit/
+aaa:html aaa:/doc/host/www.superscript.com/gprof-exit/
+aaa:dist aaa:/doc/host/www.superscript.com/gprof-exit/
