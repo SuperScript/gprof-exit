@@ -1,0 +1,24 @@
+= Introduction
+
+== Introduction
+The gprof-exit package supplies an object file that redefines +_exit+ to print
+profiling information for the
+http://www.gnu.org/software/binutils/[gprof] program.  This allows use of gprof
+to profile programs that call +_exit+ directly rather than calling +exit+.
+
+== Installation
+
+* How to link:install.html[install] gprof-exit
+
+== How to use gprof-exit
+To use gprof-exit with a typical +/package+ project, alter the the
++conf-cc+ and +conf-ld+ files in the package you wish to profile to include any
+desired gprof options.  In +conf-ld+ also include the full path to your version
+of +gprof_exit.o+ as an object-file argument.
+
+== License
+Files in this package are in the public domain.
+
+The {package} package comes with NO WARRANTY.
+
+
