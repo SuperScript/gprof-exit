@@ -1,32 +1,55 @@
-# Don't edit Makefile!  Use conf-* for configuration.
 
-SHELL=/bin/sh
+default: \
+it
 
-default: it
 
-clean:
-	rm -f compile gprof_exit.o it it-base load sysdeps systype
+compile: \
+default.build \
+conf-cc \
+print-compile.sh \
+systype \
+warn-auto.sh
+	sh makefile.build default.build compile compile
 
-compile: conf-cc print-cc.sh systype warn-auto.sh
-	rm -f compile
-	sh print-cc.sh > compile
-	chmod 755 compile
+gprof_exit.o: \
+default.o.build \
+compile \
+gprof_exit.c
+	sh makefile.build default.o.build gprof_exit.o gprof_exit
 
-gprof_exit.o: compile gprof_exit.c
-	./compile gprof_exit.c
+it: \
+default.build \
+it=d \
+gprof_exit.o
+	sh makefile.build default.build it it
 
-it: it-base sysdeps
+it.command: \
+default.command.build \
+it \
+it=d
+	sh makefile.build default.command.build it.command it
 
-it-base: gprof_exit.o sysdeps
+it.install: \
+default.install.build \
+it.command \
+it=d
+	sh makefile.build default.install.build it.install it
 
-load: conf-ld print-ld.sh systype warn-auto.sh
-	rm -f load
-	sh print-ld.sh > load
-	chmod 755 load
+it.rts: \
+default.rts.build \
+it.command
+	sh makefile.build default.rts.build it.rts it
 
-sysdeps: systype compile load
-	rm -f sysdeps
-	cat systype compile load >> sysdeps
+mkfile: \
+mkfile.build \
+mkfile=d \
+it.command \
+it.rts
+	sh makefile.build mkfile.build mkfile 
 
-systype: find-systype.sh trycpp.c x86cpuid.c
-	sh find-systype.sh > systype
+systype: \
+default.build \
+find-systype.sh \
+trycpp.c \
+x86cpuid.c
+	sh makefile.build default.build systype systype
