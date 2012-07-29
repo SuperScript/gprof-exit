@@ -1,6 +1,5 @@
 = Introduction
 
-== Introduction
 The gprof-exit package supplies an object file that redefines +_exit+ to print
 profiling information for the
 http://www.gnu.org/software/binutils/[gprof] program.  This allows use of gprof
